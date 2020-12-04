@@ -7,6 +7,7 @@ import { faDownload } from 'assets/faDownload';
 import { faMouseAlt } from 'assets/faMouseAlt';
 import Container, { TwoPanel } from 'components/Container';
 import Rights from 'components/Landing/Rights';
+import { faLink } from 'assets/faLink';
 
 const ImageContainer = styled.div`
     position: relative;
@@ -221,7 +222,9 @@ export default function Home() {
                 <OrganisationCTA>
                     <h3>Are you an organisation facilitating data requests?</h3>
                     <p>Aeon integrates with standardised formatting for data rights, in an initiative called the Open Data Rights API. Find details in the provided whitepaper:</p><br />
-                    <Button href="https://whitepaper.open-data-rights.org/" target="_blank">Open Data Rights Whitepaper</Button>
+                    <Button icon={faLink} href="https://whitepaper.open-data-rights.org/" target="_blank">
+                        Open Data Rights Whitepaper
+                    </Button>
                 </OrganisationCTA>
             </Container>
         </>
