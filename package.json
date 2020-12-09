@@ -14,7 +14,7 @@
     "fontsource-ibm-plex-sans": "^3.0.9",
     "fontsource-inter": "^3.0.5",
     "lodash": "^4.17.20",
-    "next": "latest",
+    "next": "^10.0.3",
     "next-transpile-modules": "^4.1.0",
     "react": "^16.13.0",
     "react-carbonbadge": "github:leinelissen/react-carbonbadge",

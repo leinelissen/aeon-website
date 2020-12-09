@@ -150,6 +150,8 @@ export default function Home() {
                     height={1080} 
                     quality={95}
                     alt="Swirly swirls originating from poorly drawn vault"
+                    priority
+                    loading="eager"
                 />
                 <LandingContainer>
                     <Description>
