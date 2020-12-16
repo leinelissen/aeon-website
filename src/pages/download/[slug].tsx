@@ -1,3 +1,4 @@
+import Badge from 'components/Badge';
 import Button from 'components/Button';
 import Container, { TwoPanel } from 'components/Container';
 import Main from 'components/Main';
@@ -81,7 +82,12 @@ export default function Download(props: ReleaseProps) {
 
     const renderOS = useCallback((): JSX.Element | null => {
         const helpDescriptor = <p>Ran into issues? Check out the <a href="https://docs.aeon.technology">documentation</a> for frequently encountered issues, or consider opening a new issue at the <a href="https://github.com/leinelissen/aeon">GitHub repository</a>.</p>;
-        const versionDescriptor = <p><i>Latest version: {version} (released {new Date(created_at).toLocaleDateString()})</i></p>
+        const versionDescriptor = (
+            <p>
+                <i>Latest version: {version} (released {new Date(created_at).toLocaleDateString()})</i>
+                {version.startsWith('v0') ? <Badge>BETA</Badge> : ''}
+            </p>
+        );
 
         switch(slug) {
             case 'macos':
