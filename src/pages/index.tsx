@@ -3,11 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'components/Button';
-import { faDownload } from 'assets/faDownload';
-import { faMouseAlt } from 'assets/faMouseAlt';
 import Container, { TwoPanel } from 'components/Container';
 import Rights from 'components/Landing/Rights';
-import { faLink } from 'assets/faLink';
+import React from 'react';
+import Card from 'components/Card';
+import { faDownload, faMouseAlt, faLink, faCheck, faEnvelope, faPlus, faClock, faChartNetwork, faTable, faTrash, faMailBulk } from 'assets/icons';
+import IconPoint from 'components/IconPoint';
+import { faFacebook, faInstagram, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
+import faOpenDataRights from 'assets/icons/open-data-rights';
 
 const ImageContainer = styled.div`
     position: relative;
@@ -169,20 +172,29 @@ export default function Home() {
             </ImageContainer>
             <Container>
                 <TwoPanel>
-                    <div>
-                        <h1>By the power of the GDPR!</h1>
+                    <Card>
+                        <h2>By the power of the GDPR!</h2>
                         <p>As a European citizen, you have the right to get access to your data from any organisation that is processing it. Aeon makes exercising this right (and a couple more) easy and accessible.</p>
-                    </div>
+                    </Card>
                     <div>
                         <Rights />
                     </div>
                 </TwoPanel>
                 <TwoPanel inverse>
-                    <div>
-                        <h1>Gather your data automatically</h1>
+                    <Card>
+                        <h2>Gather your data automatically</h2>
                         <p>Aeon automatically retrieves your personal data from a few well-known sources. Just add your account to get started.</p>
-                        <p>A particular source you're looking for not available? Use the built-in auto-emailer to send off your request.</p>
-                    </div>
+                        <IconPoint icon={faCheck}>
+                            Native support for&nbsp;
+                            <FontAwesomeIcon icon={faInstagram} fixedWidth />&nbsp;
+                            <FontAwesomeIcon icon={faFacebook} fixedWidth />&nbsp;
+                            <FontAwesomeIcon icon={faSpotify} fixedWidth />&nbsp;
+                            <FontAwesomeIcon icon={faLinkedin} fixedWidth />&nbsp;
+                        </IconPoint>
+                        <IconPoint icon={faEnvelope}>Platform not supported? Send a plan old email</IconPoint>
+                        <IconPoint icon={faOpenDataRights}>Easy to implement for organisations</IconPoint>
+                        <IconPoint icon={faPlus}>Easy to extend with your own platforms</IconPoint>
+                    </Card>
                     <ScreenContainer inverse>
                         <Image 
                             className="screen"
@@ -193,40 +205,46 @@ export default function Home() {
                     </ScreenContainer>
                 </TwoPanel>
                 <TwoPanel>
-                    <div>
-                        <h1>Scanning...<br />Analyzing...</h1>
+                    <Card>
+                        <h2>Scanning...<br />Analyzing...</h2>
                         <p>Aeon offers a convenient overview of your personal data, sorted by type, source and account. Get a quick look at what's happening with your personal information.</p>
-                    </div>
+                        <IconPoint icon={faClock}>View your data in a chronological timeline</IconPoint>
+                        <IconPoint icon={faTable}>View all your datapoints per category</IconPoint>
+                        <IconPoint icon={faChartNetwork}>View your data as a network of platforms</IconPoint>
+                    </Card>
                     <ScreenContainer>
                         <Image 
                             className="screen"
-                            src="/timeline.png"
+                            src="/graph.png"
                             width={556}
                             height={456}
                         />
                     </ScreenContainer>
                 </TwoPanel>
                 <TwoPanel inverse>
-                    <div>
-                        <h1>Live and let live, search &amp; destroy</h1>
+                    <Card>
+                        <h2>Live and let live, search &amp; destroy</h2>
                         <p>When you have obtained your data, it is up to you what to do with it. Either you let the data as-is, or you remove and modify some of it.</p>
-                        <p>Aeon includes the auto-emailer, which can automatically generate emails that legally compel a particular source to modify or delete data.</p>
-                    </div>
+                        <IconPoint icon={faTrash}>Easily select data points for erasure</IconPoint>
+                        <IconPoint icon={faMailBulk}>Generate legal notices for data removal and send send them right away!</IconPoint>
+                    </Card>
                     <ScreenContainer inverse>
                         <Image
                             className="screen"
-                            src="/data.png"
+                            src="/erasure.png"
                             width={556}
                             height={456}
                         />
                     </ScreenContainer>
                 </TwoPanel>
                 <OrganisationCTA>
-                    <h3>Are you an organisation facilitating data requests?</h3>
-                    <p>Aeon integrates with standardised formatting for data rights, in an initiative called the Open Data Rights API. Find details in the provided whitepaper:</p><br />
-                    <Button icon={faLink} href="https://whitepaper.open-data-rights.org/" target="_blank">
-                        Open Data Rights Whitepaper
-                    </Button>
+                    <Card>
+                        <h3>Are you an organisation facilitating data requests?</h3>
+                        <p>Aeon integrates with standardised formatting for data rights, in an initiative called the Open Data Rights API. Find details in the provided whitepaper:</p><br />
+                        <Button icon={faLink} href="https://whitepaper.open-data-rights.org/" target="_blank">
+                            Open Data Rights Whitepaper
+                        </Button>
+                    </Card>
                 </OrganisationCTA>
             </Container>
         </>

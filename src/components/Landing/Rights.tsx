@@ -1,12 +1,6 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase } from 'assets/faBriefcase';
-import { faComment } from 'assets/faComment';
-import { faDoorOpen } from 'assets/faDoorOpen';
-import { faEdit } from 'assets/faEdit';
-import { faHandPaper } from 'assets/faHandPaper';
-import { faLock } from 'assets/faLock';
-import { faTrash } from 'assets/faTrash';
+import { faDoorOpen, faEdit, faTrash, faLock, faComment, faBriefcase, faHandPaper } from 'assets/icons';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -15,6 +9,7 @@ const Container = styled.div`
     perspective: 500px;
     position: relative;
     perspective-origin: center left;
+    justify-content: center;
 `;
 
 const SingleRightContainer = styled.div`
@@ -36,13 +31,20 @@ const SingleRightContainer = styled.div`
 
 const IconContainer = styled.div`
     border-radius: 15px;
-    width: 120px;
-    height: 120px;
-    background-image: linear-gradient(to bottom right,#000080, #0000FF);
-    color: white;
+    width: 130px;
+    height: 130px;
+    background-color: white;
+    /* background-image: linear-gradient(to bottom right,#000080, #0000FF); */
+    color: #444;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02), 
+                0 2px 4px rgba(0,0,0,0.02), 
+                0 4px 8px rgba(0,0,0,0.02), 
+                0 8px 16px rgba(0,0,0,0.02),
+                0 16px 32px rgba(0,0,0,0.02), 
+                0 32px 64px rgba(0,0,0,0.02);
 `;
 
 interface SingleRightProps {
@@ -56,7 +58,7 @@ function SingleRight(props: SingleRightProps) {
     return (
         <SingleRightContainer>
             <IconContainer>
-                <FontAwesomeIcon icon={icon} fixedWidth size="3x" />
+                <FontAwesomeIcon icon={icon} fixedWidth size="4x" />
             </IconContainer>
             <p>{right}</p>
             <span>[Article {article}]</span>
