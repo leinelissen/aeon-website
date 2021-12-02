@@ -13,6 +13,10 @@ import { faFacebook, faInstagram, faLinkedin, faSpotify } from '@fortawesome/fre
 import faOpenDataRights from 'assets/icons/open-data-rights';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import landingBackground from 'assets/landing-bg.png';
+import accounts from 'assets/accounts.png';
+import erasure from 'assets/erasure.png';
+import data from 'assets/data.png';
+import graph from 'assets/graph.png';
 
 const ImageContainer = styled.div`
     position: relative;
@@ -128,7 +132,7 @@ const ScreenContainer = styled.div<{ inverse?: boolean }>`
     perspective: 400px;
     position: relative;
 
-    & > div {
+    & > span {
         transform: rotateY(${props => props.inverse ? 3 : -3}deg);
         box-shadow: 0 1px 1px rgba(0,0,0,0.06), 
             0 2px 2px rgba(0,0,0,0.06), 
@@ -202,7 +206,7 @@ export default function Home() {
                     <ScreenContainer inverse>
                         <Image 
                             className="screen"
-                            src="/accounts.png"
+                            src={accounts}
                             width={556}
                             height={456}
                         />
@@ -219,7 +223,7 @@ export default function Home() {
                     <ScreenContainer>
                         <Image 
                             className="screen"
-                            src="/graph.png"
+                            src={graph}
                             width={556}
                             height={456}
                         />
@@ -235,7 +239,7 @@ export default function Home() {
                     <ScreenContainer inverse>
                         <Image
                             className="screen"
-                            src="/erasure.png"
+                            src={erasure}
                             width={556}
                             height={456}
                         />
