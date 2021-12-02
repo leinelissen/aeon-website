@@ -15,7 +15,6 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import landingBackground from 'assets/landing-bg.png';
 import accounts from 'assets/accounts.png';
 import erasure from 'assets/erasure.png';
-import data from 'assets/data.png';
 import graph from 'assets/graph.png';
 
 const ImageContainer = styled.div`
