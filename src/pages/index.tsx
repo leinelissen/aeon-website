@@ -12,23 +12,20 @@ import IconPoint from 'components/IconPoint';
 import { faFacebook, faInstagram, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
 import faOpenDataRights from 'assets/icons/open-data-rights';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import landingBackground from 'assets/landing-bg.png';
 
 const ImageContainer = styled.div`
     position: relative;
     width: 100vw;
     height: 100vh;
 
-    > div:first-child {
-        position: absolute !important;
-        top: 0;
-        left: 0;
+    > span {
         height: 100%;
         width: 100%;
-        z-index: -1;
 
         img {
             object-fit: cover;
-
+    
             @media(max-width: 800px) {
                 object-fit: cover;
                 transform: scale(2) translateX(-50px);
@@ -38,7 +35,10 @@ const ImageContainer = styled.div`
 `;
 
 const LandingContainer = styled.div`
+    position: absolute;
+    top: 0;
     height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 150px;
@@ -149,13 +149,16 @@ export default function Home() {
         <>
             <ImageContainer>
                 <Image
-                    src="/landing-bg.png"
+                    src={landingBackground}
                     width={1920}
                     height={1080} 
                     quality={95}
                     alt="Swirly swirls originating from poorly drawn vault"
                     priority
                     loading="eager"
+                    placeholder="blur"
+                    layout="responsive"
+                    objectFit="cover"
                 />
                 <LandingContainer>
                     <Description>
