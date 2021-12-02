@@ -18,7 +18,7 @@ export const TwoPanel = styled.div<{ inverse?: boolean, alignLeft?: boolean }>`
         flex: 1 1 0;
         margin: 16px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         flex-direction: column;
 

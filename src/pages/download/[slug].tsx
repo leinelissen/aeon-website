@@ -1,18 +1,34 @@
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Badge from 'components/Badge';
-import Button from 'components/Button';
+import Button, { StyledButton } from 'components/Button';
 import Container, { TwoPanel } from 'components/Container';
 import Main from 'components/Main';
 import OsSelector from 'components/OsSelector';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+import styled from 'styled-components';
+
+const HorizontalButtons = styled.div`
+    padding: 16px 0;
+    gap: 8px;
+    width: 100%;
+
+    ${StyledButton} {
+        margin-right: 8px;
+    }
+`;
 
 interface ReleaseProps {
     hasData: boolean;
-    macos?: string;
+    macosAppleSilicon?: string;
+    macosIntel?: string;
     windows?: string;
-    deb?: string;
-    rpm?: string;
+    debX86?: string;
+    debArm?: string;
+    rpmX86?: string;
+    rpmArm?: string;
     version: string;
     created_at: string;
     params: {
@@ -48,10 +64,13 @@ export async function getStaticProps() {
     return {
         props: {
             hasData: true,
-            macos: data.assets.find((d: any) => d.name.indexOf('darwin') !== -1).browser_download_url,
+            macosAppleSilicon: data.assets.find((d: any) => d.name.indexOf('arm64.dmg') !== -1).browser_download_url,
+            macosIntel: data.assets.find((d: any) => d.name.indexOf('x64.dmg') !== -1).browser_download_url,
             windows: data.assets.find((d: any) => d.name.indexOf('.exe') !== -1).browser_download_url,
-            deb: data.assets.find((d: any) => d.name.indexOf('.deb') !== -1).browser_download_url,
-            rpm: data.assets.find((d: any) => d.name.indexOf('.rpm') !== -1).browser_download_url,
+            debArm: data.assets.find((d: any) => d.name.indexOf('arm64.deb') !== -1).browser_download_url,
+            debX86: data.assets.find((d: any) => d.name.indexOf('amd64.deb') !== -1).browser_download_url,
+            rpmArm: data.assets.find((d: any) => d.name.indexOf('arm64.rpm') !== -1).browser_download_url,
+            rpmX86: data.assets.find((d: any) => d.name.indexOf('x86_64.rpm') !== -1).browser_download_url,
             version: data.name,
             created_at: data.created_at,
         },
@@ -65,10 +84,13 @@ export default function Download(props: ReleaseProps) {
     const {
         hasData,
         version,
-        macos,
+        macosAppleSilicon,
+        macosIntel,
         windows,
-        deb, 
-        rpm,
+        debArm,
+        debX86, 
+        rpmArm,
+        rpmX86,
         created_at,
     } = props;
 
@@ -99,7 +121,16 @@ export default function Download(props: ReleaseProps) {
                         {versionDescriptor}
                         <p>After downloading, extract the ZIP file and drag Aeon to your applications folder. That's all!</p>
                         {helpDescriptor}
-                        <Button href={macos}>Download for macOS</Button>
+                        <HorizontalButtons>
+                            <Button href={macosIntel}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download for macOS (Intel)
+                            </Button>
+                            <Button href={macosAppleSilicon}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download for macOS (Apple Silicon)
+                            </Button>
+                        </HorizontalButtons>
                     </>
                 );
             case 'windows':
@@ -109,7 +140,10 @@ export default function Download(props: ReleaseProps) {
                         {versionDescriptor}
                         <p>After downloading, open the setup.exe file. Finish the installation process and you&apos;re good to go. That&apos;s all!</p>
                         {helpDescriptor}
-                        <Button href={windows}>Download for Windows</Button>
+                        <Button href={windows}>
+                            <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                            Download for Windows
+                        </Button>
                     </>
                 );
             case 'deb':
@@ -119,7 +153,16 @@ export default function Download(props: ReleaseProps) {
                         {versionDescriptor}
                         <p>After downloading the .deb archive, either open it in the Ubuntu Software Center by double-clicking, or install it using the command-line: <code>sudo dpkg -i aeon.deb</code>. That's all!</p>
                         {helpDescriptor}
-                        <Button href={deb}>Download for Debian/Ubuntu</Button>
+                        <HorizontalButtons>
+                            <Button href={debX86}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download .deb (x86)
+                            </Button>
+                            <Button href={debArm}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download .deb (ARM)
+                            </Button>
+                        </HorizontalButtons>
                     </>
                 );
             case 'rpm':
@@ -129,7 +172,16 @@ export default function Download(props: ReleaseProps) {
                         {versionDescriptor}
                         <p>After downloading the .rpm file, use RPM to install it: <code>sudo rpm -i aeon.rpm</code>. That's all!</p>
                         {helpDescriptor}
-                        <Button href={rpm}>Download for Fedora/centOS/RHEL</Button>
+                        <HorizontalButtons>
+                            <Button href={rpmX86}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download .rpm (x86)
+                            </Button>
+                            <Button href={rpmArm}>
+                                <FontAwesomeIcon icon={faDownload} style={{ marginRight: 8 }} fixedWidth />
+                                Download .rpm (ARM)
+                            </Button>
+                        </HorizontalButtons>
                     </>
                 );
         }

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import BareContainer from './Container';
 import { animated, useTransition } from 'react-spring';
 import GitHubButton from 'react-github-btn';
+import { useRouter } from 'next/router';
 
 const MenuContainer = styled.nav`
     position: fixed;
@@ -20,6 +21,10 @@ const Container = styled(BareContainer)`
 
     a {
         border-bottom: 0;
+
+        &.active {
+            font-weight: 600;
+        }
     }
 `;
 
@@ -105,10 +110,14 @@ const Image = styled.img`
 `;
 
 export function Links() {
+    const { pathname } = useRouter();
+
     return (
         <>
             <Link href="/download">
-                <a>Downloads</a>
+                <a className={pathname.startsWith('/download') ? 'active' : ''}>
+                    Downloads
+                </a>
             </Link>
             <a href="https://docs.aeon.technology">
                 Documentation

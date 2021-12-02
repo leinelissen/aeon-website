@@ -7,10 +7,11 @@ import Container, { TwoPanel } from 'components/Container';
 import Rights from 'components/Landing/Rights';
 import React from 'react';
 import Card from 'components/Card';
-import { faDownload, faMouseAlt, faLink, faCheck, faEnvelope, faPlus, faClock, faChartNetwork, faTable, faTrash, faMailBulk } from 'assets/icons';
+import { faMouseAlt, faLink, faCheck, faEnvelope, faPlus, faClock, faChartNetwork, faTable, faTrash, faMailBulk } from 'assets/icons';
 import IconPoint from 'components/IconPoint';
 import { faFacebook, faInstagram, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons';
 import faOpenDataRights from 'assets/icons/open-data-rights';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const ImageContainer = styled.div`
     position: relative;

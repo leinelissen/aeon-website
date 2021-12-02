@@ -7,7 +7,7 @@ const MarginLeft = styled.span`
     margin-left: 8px;
 `;
 
-const StyledButton = styled.a`
+export const StyledButton = styled.a`
     margin: 0;
     text-decoration: 0;
     background-color: #0000ff;
@@ -15,8 +15,9 @@ const StyledButton = styled.a`
     font-weight: 600;
     border-radius: 8px;
     padding: 16px 24px;
-    margin: 16px 0;
+    margin: 16px 0 0 0;
     border: 0;
+    display: inline-block;
     transition: 0.2s ease background-color;
     box-shadow: 0 1px 1px rgba(0,0,255,0.08), 
         0 2px 2px rgba(0,0,255,0.08), 

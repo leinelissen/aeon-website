@@ -1,6 +1,7 @@
 // import App from "next/app";
 import Menu from 'components/Menu';
 import type { AppProps /*, AppContext */ } from 'next/app'
+import styled from 'styled-components';
 import Head from 'next/head';
 
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -13,8 +14,14 @@ import 'fontsource-ibm-plex-sans/latin-600.css';
 import 'fontsource-inter/latin-700.css';
 import Footer from 'components/Footer';
 
+const PageContainer = styled.div`
+    min-height: 100vh;
+    padding-bottom: 150px;
+    position: relative;
+`;
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
+    return (
         <>
             <Head>
                 <title>Aeon - Get a grip on your data</title>
@@ -27,11 +34,13 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-TileColor" content="#2d89ef" />
                 <meta name="theme-color" content="#ffffff" />
             </Head>
-            <Menu />
-            <Component {...pageProps} />
-            <Footer />
+            <PageContainer>
+                <Menu />
+                <Component {...pageProps} />
+                <Footer />
+            </PageContainer>
         </>
-  );
+    );
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -1,5 +1,7 @@
+import { faApple, faRedhat, faUbuntu, faWindows } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Container = styled.div`
     border-bottom: 1px solid #eee;
@@ -11,7 +13,7 @@ const MenuItem = styled.a`
     margin-right: 32px;
     padding: 16px 0;
     text-decoration: none;
-    color: black;
+    color: #666;
     border-bottom: 3px solid transparent;
 
     &:hover:not(.active) {
@@ -22,6 +24,7 @@ const MenuItem = styled.a`
     &.active {
         border-color: #0000ff;
         color: #0000ff;
+        font-weight: 600;
     }
 `;
 
@@ -33,16 +36,28 @@ function OsSelector({ activeOS = '' }: Props) {
     return (
         <Container>
             <Link href="/download/macos" passHref>
-                <MenuItem className={activeOS === 'macos' ? 'active' : ''}>macOS</MenuItem>
+                <MenuItem className={activeOS === 'macos' ? 'active' : ''}>
+                    <FontAwesomeIcon icon={faApple} style={{ marginRight: 8 }} fixedWidth />
+                    macOS
+                </MenuItem>
             </Link>
             <Link href="/download/windows" passHref>
-                <MenuItem className={activeOS === 'windows' ? 'active' : ''}>Windows</MenuItem>
+                <MenuItem className={activeOS === 'windows' ? 'active' : ''}>
+                    <FontAwesomeIcon icon={faWindows} style={{ marginRight: 8 }} fixedWidth />
+                    Windows
+                </MenuItem>
             </Link>
             <Link href="/download/deb" passHref>
-                <MenuItem className={activeOS === 'deb' ? 'active' : ''}>Debian/Ubuntu</MenuItem>
+                <MenuItem className={activeOS === 'deb' ? 'active' : ''}>
+                    <FontAwesomeIcon icon={faUbuntu} style={{ marginRight: 8 }} fixedWidth />
+                    Debian/Ubuntu
+                </MenuItem>
             </Link>
             <Link href="/download/rpm" passHref>
-                <MenuItem className={activeOS === 'rpm' ? 'active' : ''}>centOS/Fedora/RHEL</MenuItem>
+                <MenuItem className={activeOS === 'rpm' ? 'active' : ''}>
+                    <FontAwesomeIcon icon={faRedhat} style={{ marginRight: 8 }} fixedWidth />
+                    centOS/Fedora/RHEL
+                </MenuItem>
             </Link>
         </Container>
     );
