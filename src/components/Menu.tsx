@@ -12,12 +12,16 @@ const MenuContainer = styled.nav`
     top: 0;
     width: 100%;
     z-index: 100;
+    background-color: rgba(245, 245, 245, 0.6);
+    -webkit-backdrop-filter: blur(80px);
+    border-bottom: 1px solid #eee;
+    font-family: Inter;
 `;
 
 const Container = styled(BareContainer)`
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 50px;
 
     a {
         border-bottom: 0;
@@ -48,7 +52,7 @@ const Right = styled.div`
         cursor: pointer;
         
         &:hover {
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #bbb;
         }
     }
 
@@ -106,7 +110,7 @@ const Overlay = styled(animated.div)`
 `;
 
 const Image = styled.img`
-    height: 30px;
+    height: 24px;
 `;
 
 export function Links() {

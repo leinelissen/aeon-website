@@ -23,8 +23,8 @@ const ImageContainer = styled.div`
     height: 100vh;
 
     > span {
-        height: 100%;
-        width: 100%;
+        height: 100% !important;
+        width: 100% !important;
 
         img {
             object-fit: cover;

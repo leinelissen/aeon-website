@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import Container, { TwoPanel } from './Container';
 
 const Wrapper = styled.div`
     background-color: #f8f8f8;
-    font-size: 12px;
+    font-size: 14px;
     color: #aaa;
     position: absolute;
     bottom: 0;
@@ -26,7 +27,7 @@ function Footer() {
                         </p>
                     </div>
                     <div>
-                        <p>We don&apos;t story any of your data. Period. <br />Also, this software is provided as is. No guarantees, no take-backsies.</p>
+                        <p><Link href="/legal"><a>Legal stuff</a></Link></p>
                     </div>
                 </TwoPanel>
             </Container>
