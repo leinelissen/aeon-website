@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import BareContainer from './Container';
 import { animated, useTransition } from 'react-spring';
-import GitHubButton from 'react-github-btn';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
