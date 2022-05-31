@@ -5,6 +5,8 @@ import BareContainer from './Container';
 import { animated, useTransition } from 'react-spring';
 import GitHubButton from 'react-github-btn';
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const MenuContainer = styled.nav`
     position: fixed;
@@ -21,7 +23,7 @@ const MenuContainer = styled.nav`
 const Container = styled(BareContainer)`
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 60px;
 
     a {
         border-bottom: 0;
@@ -39,10 +41,10 @@ const Right = styled.div`
     
     a, button {
         display: inline-block;
-        height: 50px;
-        line-height: 50px;
+        height: 60px;
+        line-height: 60px;
         padding: 0;
-        margin-left: 25px;
+        margin-left: 32px;
         text-decoration: none;
         color: black;
         transition: border-color 0.2s ease;
@@ -123,11 +125,14 @@ export function Links() {
                     Downloads
                 </a>
             </Link>
-            <a href="https://docs.aeon.technology">
+            <a href="https://docs.aeon.technology" target="_blank">
                 Documentation
             </a>
-            <a href="https://docs.aeon.technology/extending-aeon/reporting-issues">
+            <a href="https://docs.aeon.technology/extending-aeon/reporting-issues" target="_blank">
                 Contributing
+            </a>
+            <a href="https://github.com/leinelissen/aeon" style={{ opacity: 0.5 }} target="_blank">
+                View on GitHub&nbsp;&nbsp;<FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
         </>
     )
@@ -153,7 +158,6 @@ export default function Menu() {
                 </Link>
                 <Right className="desktop">
                     <Links />
-                    <GitHubButton href="https://github.com/leinelissen/aeon" data-icon="octicon-star" data-size="large" aria-label="Star leinelissen/aeon on GitHub">Star</GitHubButton>
                 </Right>
                 <Right className="mobile">
                     <button onClick={handleClick}>Menu</button>

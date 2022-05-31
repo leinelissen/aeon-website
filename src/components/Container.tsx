@@ -48,4 +48,10 @@ export const TwoPanel = styled.div<{ inverse?: boolean, alignLeft?: boolean }>`
     }
 `;
 
+export const ThreePanel = styled(TwoPanel)`
+    & > *:nth-child(2) {
+        text-align: center;
+    }
+`;
+
 export default Container;

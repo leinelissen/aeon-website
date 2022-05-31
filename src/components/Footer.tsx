@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 import Container, { TwoPanel } from './Container';
 
@@ -25,6 +26,7 @@ function Footer() {
                         <p>
                             Aeon is created and maintained by Lei Nelissen
                         </p>
+                        <GitHubButton href="https://github.com/leinelissen/aeon" data-icon="octicon-star" data-size="large" aria-label="Star leinelissen/aeon on GitHub">Star</GitHubButton>
                     </div>
                     <div>
                         <p><Link href="/legal"><a>Legal stuff</a></Link></p>
