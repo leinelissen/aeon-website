@@ -60,17 +60,19 @@ export async function getStaticProps() {
             revalidate: 600,
         };
     }
+
+    console.log(data);
     
     return {
         props: {
             hasData: true,
-            macosAppleSilicon: data.assets.find((d: any) => d.name.indexOf('arm64.dmg') !== -1).browser_download_url,
-            macosIntel: data.assets.find((d: any) => d.name.indexOf('x64.dmg') !== -1).browser_download_url,
-            windows: data.assets.find((d: any) => d.name.indexOf('.exe') !== -1).browser_download_url,
-            debArm: data.assets.find((d: any) => d.name.indexOf('arm64.deb') !== -1).browser_download_url,
-            debX86: data.assets.find((d: any) => d.name.indexOf('amd64.deb') !== -1).browser_download_url,
-            rpmArm: data.assets.find((d: any) => d.name.indexOf('arm64.rpm') !== -1).browser_download_url,
-            rpmX86: data.assets.find((d: any) => d.name.indexOf('x86_64.rpm') !== -1).browser_download_url,
+            macosAppleSilicon: data.assets.find((d: any) => d.name.indexOf('arm64.dmg') !== -1)?.browser_download_url || null,
+            macosIntel: data.assets.find((d: any) => d.name.indexOf('x64.dmg') !== -1)?.browser_download_url || null,
+            windows: data.assets.find((d: any) => d.name.indexOf('.exe') !== -1)?.browser_download_url || null,
+            debArm: data.assets.find((d: any) => d.name.indexOf('arm64.deb') !== -1)?.browser_download_url || null,
+            debX86: data.assets.find((d: any) => d.name.indexOf('amd64.deb') !== -1)?.browser_download_url || null,
+            rpmArm: data.assets.find((d: any) => d.name.indexOf('arm64.rpm') !== -1)?.browser_download_url || null,
+            rpmX86: data.assets.find((d: any) => d.name.indexOf('x86_64.rpm') !== -1)?.browser_download_url || null,
             version: data.name,
             created_at: data.created_at,
         },
